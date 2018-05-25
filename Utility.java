@@ -10,10 +10,10 @@ public class Utility extends Property {
 	
 		if (numberOfUtilities == 1)
 			return 4 * roll;
-		else
+		else if (numberOfUtilities == 2)
 			return 10 * roll;
-			
-		return 0;
+		else
+			return 0;
 	
 	}
 
