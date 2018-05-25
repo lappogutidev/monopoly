@@ -2,9 +2,9 @@ public class CardSquare extends Square {
 
 	private Deck deck;
 
-	public CardSquare(String name, Deck deck) {
+	public CardSquare(Deck deck) {
 	
-		super(name);
+		super(deck.getTitle());
 		
 		this.deck = deck;
 	

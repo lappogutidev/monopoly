@@ -36,11 +36,36 @@ public class Board {
 		
 	};
 	
+	Card[] chanceCards = {
+	
+		new Card("Win a beauty Contest"),
+		new Card("Advance to Go")
+		
+	};
+	
+	Card[] communityChestCards = {
+	
+		new Card("Win a beauty Contest"),
+		new Card("Advance to Go")
+		
+	};
+	
+	Deck chanceDeck = new Deck(chanceCards, "Chance");
+	Deck communityChestDeck = new Deck(communityChestCards, "Community Chest");
+	
 	public Board() {
 	
 		Square[] board = {
 			new Square("Go"),
-			new Street("Mediterranean Avenue", 60, ColorGroup.DarkPurple, streetRents[1])
+			new Street("Mediterranean Avenue", 60, ColorGroup.DarkPurple, streetRents[1]),
+			new CardSquare(communityChestDeck),
+			new Street("Baltic Avenue", 60, ColorGroup.DarkPurple, streetRents[2]),
+			new Square("Income Tax"),
+			new Railroad("Reading Railroad"),
+			new Street("Oriental Avenue", 100, ColorGroup.LightBlue, streetRents[3]),
+			new CardSquare(chanceDeck),
+			new Street("Vermont Avenue", 100, ColorGroup.LightBlue, streetRents[4]),
+			new Street("Connecticut Avenue", 120, ColorGroup.LightBlue, streetRents[5])
 		};
 		
 		gameboard = board;
@@ -49,7 +74,16 @@ public class Board {
 	
 	public String toString() {
 	
-		String result = "";
+		String result = "\n";
+		
+		for (int i = 0; i < gameboard.length; i++) {
+		
+			if (gameboard[i] instanceof Property)
+				result += ((Property) gameboard[i]).getPrice();
+		
+			result += "\t" + gameboard[i].getName() + "\n";
+		
+		}
 		
 		return result;
 	
